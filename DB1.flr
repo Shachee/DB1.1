@@ -1,0 +1,113 @@
+show(Show1,20140202).
+show(Show2,20140402).
+show(Show3,20140602).
+show(Show4,20140802).
+show(Show5,20141005).
+
+
+judge(Show1,Judy).
+judge(Show1,Lucy).
+judge(Show1,Irving).
+judge(Show2,Judy).
+judge(Show2,Phil).
+judge(Show3,Irving).
+judge(Show3,Phil).
+judge(Show3,Oscar).
+judge(Show4,Lucy).
+judge(Show4,Oscar).
+judge(Show5,Lucy).
+judge(Show5,Irving).
+judge(Show5,Phil).
+
+
+scores(Joe,Barcarolle,Show1,Judy,7).
+scores(Joe,Barcarolle,Show1,Lucy,8).
+scores(Joe,Barcarolle,Show1,Irving,6).
+scores(Mary,Barcarolle,Show1,Judy,5).
+scores(Mary,Barcarolle,Show1,Lucy,6).
+scores(Mary,Barcarolle,Show1,Irving,6).
+scores(Mary,Giselle,Show1,Judy,9).
+scores(Mary,Giselle,Show1,Lucy,6).
+scores(Mary,Giselle,Show1,Irving,8).
+scores(Bess,'Besame Mucho',Show1,Judy,4).
+scores(Bess,'Besame Mucho',Show1,Lucy,5).
+scores(Bess,'Besame Mucho',Show1,Irving,6).
+scores(Don,'Besame Mucho',Show1,Judy,9).
+scores(Don,'Besame Mucho',Show1,Lucy,9).
+scores(Don,'Besame Mucho',Show1,Irving,7).
+
+scores(Bob,'Swan Lake',Show2,Judy,8).
+scores(Bob,'Swan Lake',Show2,Phil,6).
+scores(Mary,Habanera,Show2,Judy,3).
+scores(Mary,Habanera,Show2,Phil,5).
+scores(Mary,'Besame Mucho',Show2,Judy,9).
+scores(Mary,'Besame Mucho',Show2,Phil,10).
+scores(Ann,Habanera,Show2,Judy,7).
+scores(Ann,Habanera,Show2,Phil,6).
+scores(Bess,Giselle,Show2,Judy,8).
+scores(Bess,Giselle,Show2,Phil,7).
+scores(Tom,'Besame Mucho',Show2,Judy,5).
+scores(Tom,'Besame Mucho',Show2,Phil,5).
+scores(Tom,'The Tramp',Show2,Judy,7).
+scores(Tom,'The Tramp',Show2,Phil,6).
+
+scores(Bob,'The Tramp',Show3,Irving,8).
+scores(Bob,'The Tramp',Show3,Phil,7).
+scores(Bob,'The Tramp',Show3,Oscar,9).
+scores(Ann,'Besame Mucho',Show3,Irving,7).
+scores(Ann,'Besame Mucho',Show3,Phil,6).
+scores(Ann,'Besame Mucho',Show3,Oscar,4).
+scores(Bess,'Swan Lake',Show3,Irving,6).
+scores(Bess,'Swan Lake',Show3,Phil,8).
+scores(Bess,'Swan Lake',Show3,Oscar,7).
+scores(Tom,Barcarolle,Show3,Irving,9).
+scores(Tom,Barcarolle,Show3,Phil,7).
+scores(Tom,Barcarolle,Show3,Oscar,6).
+scores(Don,Giselle,Show3,Irving,8).
+scores(Don,Giselle,Show3,Phil,6).
+scores(Don,Giselle,Show3,Oscar,9).
+
+scores(Joe,'The Tramp',Show4,Lucy,7).
+scores(Joe,'The Tramp',Show4,Oscar,6).
+scores(Bob,Barcarolle,Show4,Lucy,6).
+scores(Bob,Barcarolle,Show4,Oscar,8).
+scores(Ann,'Besame Mucho',Show4,Oscar,9).
+scores(Ann,'Besame Mucho',Show4,Oscar,8).
+scores(Tom,'The Tramp',Show4,Lucy,8).
+scores(Tom,'The Tramp',Show4,Oscar,10).
+scores(Tom,Barcarolle,Show4,Lucy,5).
+scores(Tom,Barcarolle,Show4,Oscar,5).
+
+scores(Bob,'Swan Lake',Show5,Lucy,3).
+scores(Bob,'Swan Lake',Show5,Irving,5).
+scores(Bob,'Swan Lake',Show5,Phil,6).
+scores(Bob,Giselle,Show5,Lucy,4).
+scores(Bob,Giselle,Show5,Irving,6).
+scores(Bob,Giselle,Show5,Phil,8).
+scores(Mary,Barcarolle,Show5,Lucy,5).
+scores(Mary,Barcarolle,Show5,Irving,7).
+scores(Mary,Barcarolle,Show5,Phil,10).
+scores(Mary,'Besame Mucho',Show5,Lucy,6).
+scores(Mary,'Besame Mucho',Show5,Irving,8).
+scores(Mary,'Besame Mucho',Show5,Phil,7).
+scores(Ann,'Besame Mucho',Show5,Lucy,7).
+scores(Ann,'Besame Mucho',Show5,Irving,9).
+scores(Ann,'Besame Mucho',Show5,Phil,6).
+scores(Bess,'Besame Mucho',Show5,Lucy,9).
+scores(Bess,'Besame Mucho',Show5,Irving,8).
+scores(Bess,'Besame Mucho',Show5,Phil,8).
+scores(Bess,Habanera,Show5,Lucy,8).
+scores(Bess,Habanera,Show5,Irving,7).
+scores(Bess,Habanera,Show5,Phil,10).
+scores(Tom,'The Tramp',Show5,Lucy,6).
+scores(Tom,'The Tramp',Show5,Irving,6).
+scores(Tom,'The Tramp',Show5,Phil,8).
+scores(Don,'The Tramp',Show5,Lucy,5).
+scores(Don,'The Tramp',Show5,Irving,8).
+scores(Don,'The Tramp',Show5,Phil,7).
+
+checkSame(?U1,?U2) :-
+	scores(?U1,?A,?Show,?J,?Score), scores(?U2,?A,?Show,?J,?Score),
+	?U1 @< ?U2.
+
+	
