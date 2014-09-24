@@ -4,7 +4,6 @@ show(Show3,20140602).
 show(Show4,20140802).
 show(Show5,20141005).
 
-
 judge(Show1,Judy).
 judge(Show1,Lucy).
 judge(Show1,Irving).
@@ -19,7 +18,14 @@ judge(Show5,Lucy).
 judge(Show5,Irving).
 judge(Show5,Phil).
 
-
+contestant(Joe).
+contestant(Mary).
+contestant(Bess).
+contestant(Don).
+contestant(Bob).
+contestant(Tom).
+contestant(Ann).
+	
 scores(Joe,Barcarolle,Show1,Judy,7).
 scores(Joe,Barcarolle,Show1,Lucy,8).
 scores(Joe,Barcarolle,Show1,Irving,6).
@@ -109,5 +115,26 @@ scores(Don,'The Tramp',Show5,Phil,7).
 checkSame(?U1,?U2) :-
 	scores(?U1,?A,?Show,?J,?Score), scores(?U2,?A,?Show,?J,?Score),
 	?U1 @< ?U2.
+	
+sameAvg(?U1,?U2,?Avg1) :-
+	contestant(?U1),
+	contestant(?U2),
+	?Avg1=avg{?Score1|scores(?U1,?A,?S1,?_J,?Score1),scores(?U2,?A,?S2,?_J,?Score2),?U1!=?U2},
+	?Avg2=avg{?Score2|scores(?U1,?A,?S1,?_J,?Score1),scores(?U2,?A,?S2,?_J,?Score2),?U1!=?U2},
+	?Avg1=?Avg2,
+	?U1 @< ?U2.
+//	?S1 != ?S2.
+//	?U1 @< ?U2.
+
+getAvg(?U1,?Avg1) :-
+	contestant(?U1),?Avg1=avg{?Score|scores(?U1,?_A,?_S,?_J,?Score)}.
+
 
 	
+samePc(?U1,?U2,?A,?S1,?S2) :-
+	contestant(?U1),
+	contestant(?U2),
+	scores(?U1,?A,?S1,?_J,?),scores(?U2,?A,?S2,?_J,?),
+	?U1 @< ?U2,
+	?S1 != ?S2.
+//	?U1 @< ?U2.	
