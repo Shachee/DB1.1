@@ -206,14 +206,13 @@ checkSame2(?U1,?U2) :-
 	
 	
 q4b(?U1,?U2) :-
-	contestant(?U1),
-	contestant (?U2),
 	forall(?P)^(getArt(?U1,?P)~~>getArt(?U2,?P) ),
+	contestant(?U1),
+	contestant(?U2),
 	?U1 != ?U2. 
 	
 	
-	
-q4a(?U1,?Ct1,?U2,?Ct2) :- 
+q4atest(?U1,?Ct1,?U2,?Ct2) :- 
 	performedArts(?U1,?Ct1), 
 	performedArts(?U2,?Ct2),
 	?U1 != ?U2,
@@ -221,12 +220,17 @@ q4a(?U1,?Ct1,?U2,?Ct2) :-
 	
 	
 qq(?U1,?U2) :-
-	\naf getArt(?U1,?P),getArt(?U2,?P).
+	contestant(?U1),
+	contestant(?U2),
+	\naf getArt(?U1,?P),getArt(?U2,?P),
+	?U1 != ?U2.
 
+qq1(?U1,?U2) :-
+	contestant(?U1),
+	contestant(?U2),	
+	?U1 != ?U2.
 	
-	
-	
-	
+q4a(?U1,?U2 ) :- qq1(?U1,?U2) , \naf qq(?U1,?U2) .
 	
 	
 	
