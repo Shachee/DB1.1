@@ -1,4 +1,5 @@
 show(Show1,20140202).
+show(Show1,20140202).
 show(Show2,20140402).
 show(Show3,20140602).
 show(Show4,20140802).
@@ -112,6 +113,7 @@ scores(Don,'The Tramp',Show5,Lucy,5).
 scores(Don,'The Tramp',Show5,Irving,8).
 scores(Don,'The Tramp',Show5,Phil,7).
 
+
 checkSame(?U1,?U2) :-
 	scores(?U1,?A,?Show,?J,?Score), scores(?U2,?A,?Show,?J,?Score),
 //	?U1 != ?U2.
@@ -172,18 +174,26 @@ sameHighestScore(?U1,?U2,?A,?S1,?S2,?L1,?L2) :-
 	
 performedArts(?U1,?Ct):-
 	contestant(?U1),
-	?Ct=setof{?Art[?U1]|scores(?U1,?Art,?,?,?)}.
+	?Ct=setof{?Art[?U1](asc)|scores(?U1,?Art,?,?,?)}.
 
 sameArt(?U1,?U2,?Ct1,?Ct2,?C1):-
 	//performedArts(?U1,?Ct1),
 	//performedArts(?U2,?Ct2),
  	?Ct1=setof{?Art[?U1]|scores(?U1,?Art,?,?,?)},
 	?Ct2=setof{?Art[?U2]|scores(?U2,?Art,?,?,?)},
-	?C1 = [?Ct1+>>?Ct2],
-	?U1 != ?U2.	
+//	?C1 = ?U1[?Art+>>?Ct2],
+	?U1 != ?U2,
+	?C1 = ?Ct1[|=> contains(?Ct2)|]@\btp.
 //	?C1 == true.
-//	?C2=[?Ct2+>>?Ct1].
 
+test(?Ct1):-
+	?Ct2 =[a,b,c,d];
+	\list[append([?Ct2])-> ?Ct1]@\btp.
+ 
+getArt(?N,?C):-
+	scores(?N,?C,?,?,?).
+	
+	
 checkSame2(?U1,?U2) :-
 	scores(?U1,?A,?Show,?J,?Score), scores(?U2,?A,?Show,?J,?Score),
 	?U1 != ?U2.
@@ -192,6 +202,39 @@ checkSame2(?U1,?U2) :-
 	chained(?U1,?U3) :-  chained(?U1,?U2) , checkSame2(?U2,?U3), ?U2 != ?U3, ?U1 != ?U2 , ?U1 != ?U3  .
 
 	chained2(?U1,?U2) :- chained(?U1 ,?U2), ?U1 @< ?U2.
+	
+	
+	
+q4b(?U1,?U2) :-
+	contestant(?U1),
+	contestant (?U2),
+	forall(?P)^(getArt(?U1,?P)~~>getArt(?U2,?P) ),
+	?U1 != ?U2. 
+	
+	
+	
+q4a(?U1,?Ct1,?U2,?Ct2) :- 
+	performedArts(?U1,?Ct1), 
+	performedArts(?U2,?Ct2),
+	?U1 != ?U2,
+	\naf ?Ct1 @< ?Ct2.
+	
+	
+qq(?U1,?U2) :-
+	\naf getArt(?U1,?P),getArt(?U2,?P).
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
 
 
 
