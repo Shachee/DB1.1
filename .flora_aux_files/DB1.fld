@@ -1,0 +1,26 @@
+#include "flrheader.flh"
+#include "flr_fld_standardtypes.flh"
+
+FLORA_THIS_WORKSPACE(tblflapply)(judge,__fldnewvar1,__fldnewvar2,__fldnewvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(chained2,__fldnewvar1,__fldnewvar2,__fldnewvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,__fldnewvar1,__fldnewvar2,__fldnewvar3,__fldnewvar4,__fldnewvar5,__fldnewvar6).
+FLORA_THIS_WORKSPACE(tblflapply)(chained,__fldnewvar1,__fldnewvar2,__fldnewvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(samePc,__fldnewvar1,__fldnewvar2,__fldnewvar3,__fldnewvar4,__fldnewvar5,__fldnewvar6,__fldnewvar7,__fldnewvar8).
+FLORA_THIS_WORKSPACE(tblflapply)(q4a,__fldnewvar1,__fldnewvar2,__fldnewvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(sameAvg,__fldnewvar1,__fldnewvar2,__fldnewvar3,__fldnewvar4).
+FLORA_THIS_WORKSPACE(tblflapply)(show,__fldnewvar1,__fldnewvar2,__fldnewvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(getHighestScore,__fldnewvar1,__fldnewvar2,__fldnewvar3,__fldnewvar4,__fldnewvar5,__fldnewvar6,__fldnewvar7).
+FLORA_THIS_WORKSPACE(tblflapply)(qq1,__fldnewvar1,__fldnewvar2,__fldnewvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(test,__fldnewvar1,__fldnewvar2).
+FLORA_THIS_WORKSPACE(tblflapply)(getAvg,__fldnewvar1,__fldnewvar2,__fldnewvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(qq,__fldnewvar1,__fldnewvar2,__fldnewvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(q4atest,__fldnewvar1,__fldnewvar2,__fldnewvar3,__fldnewvar4,__fldnewvar5).
+FLORA_THIS_WORKSPACE(tblflapply)(getArt,__fldnewvar1,__fldnewvar2,__fldnewvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(q4b,__fldnewvar1,__fldnewvar2,__fldnewvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(sameHighestScore,__fldnewvar1,__fldnewvar2,__fldnewvar3,__fldnewvar4,__fldnewvar5,__fldnewvar6,__fldnewvar7,__fldnewvar8).
+FLORA_THIS_WORKSPACE(tblflapply)(checkSame2,__fldnewvar1,__fldnewvar2,__fldnewvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(performedArts,__fldnewvar1,__fldnewvar2,__fldnewvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(sameArt,__fldnewvar1,__fldnewvar2,__fldnewvar3,__fldnewvar4,__fldnewvar5,__fldnewvar6).
+FLORA_THIS_WORKSPACE(tblflapply)(contestant,__fldnewvar1,__fldnewvar2).
+FLORA_THIS_WORKSPACE(tblflapply)(checkSame,__fldnewvar1,__fldnewvar2,__fldnewvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(getAvgScore,__fldnewvar1,__fldnewvar2,__fldnewvar3,__fldnewvar4,__fldnewvar5,__fldnewvar6).

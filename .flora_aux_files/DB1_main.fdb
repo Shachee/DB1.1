@@ -1,0 +1,362 @@
+/************************************************************************
+  file: includes/flrheader.flh
+
+  Author(s): Guizhen Yang
+	     Michael Kifer
+
+  Copyright (C) by
+       The Research Foundation of the State University of New York, 1999-2013.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+ 
+       http://www.apache.org/licenses/LICENSE-2.0
+ 
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+
+/************************************************************************
+  Note: This file should contain Macros only!
+
+  If FLORA_DUMP is defined: preprocessing for user-friendly output.
+
+  If any of these macros are changed, the corresponding wrappers in
+  flrwrapper.P must also be changed
+************************************************************************/
+
+
+
+
+/* File:      flora_prefix.flh -- FLORA-2 prefixes
+**
+** Author(s): Michael Kifer
+**	      Guizhen Yang
+**
+** Contact:   flora-users@lists.sourceforge.net
+**
+** Copyright (C) by
+**      The Research Foundation of the State University of New York, 1999-2013;
+**      and Vulcan, Inc., 2008-2013.
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**      http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+**
+**
+*/
+
+
+/******************************************************************************
+  Flora prefix
+
+  All Flora symbols begin with this prefix.
+******************************************************************************/
+/* Prefix for F-logic and HiLog predicates */
+
+
+
+
+
+/******************************************************************************
+  Attaching FLORA_PREFIX
+
+  The argument to this Macro should be quoted.
+******************************************************************************/
+
+
+
+/******************************************************************************
+  Strings following FLORA_PREFIX
+
+  These strings should be quoted.
+******************************************************************************/
+/* Keep "mod" in the name of a formula wrapper right after FLORA_PREFIX
+   We rely on this to identify meta wrappers */
+
+
+
+/*  Trie for keeping skeletons of defined facts -- debugging */
+
+
+/*  Trie for storing used symbols names */
+
+
+
+
+/******************************************************************************
+  Module and trie prefixes
+******************************************************************************/
+/* prefix to construct Flora module predicates. */
+
+
+/*  prefix to name Flora storage trie for a module. */
+
+
+
+/* prefix to name Flora fld storage trie for a module. */
+
+
+/* prefix to name Flora fls storage trie for a module. */
+
+
+
+/****************************************************************************
+  F-logic atom prefixes for predicates that are used to distinguish F-logic
+  wrappers in the trailers, the user program, base facts, etc.
+****************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/******************************************************************************
+  Lengths of prefixes of F-logic wrappers
+******************************************************************************/
+
+
+
+/****************************************************************************
+  Prefixes that are used for F-logic wrappers in rule bodies of user programs.
+  They are called "debuggin prefixes" because they were introduced to help
+  implement the debugging feature that catches undefined methods.
+  Note:
+     naf^, dyna^, dynz^ are the outermost prefixes
+     neg^ is the next outermost
+****************************************************************************/
+
+
+
+
+
+
+
+
+/* Prefixes used for checking undefinedness */
+
+
+
+/* Corresponding 1-arg macros */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/******* these are used in inheritance closure axioms *******/
+
+
+
+
+
+
+
+
+
+/******* these are for transactions in LIBMOD *******/
+
+
+
+
+
+
+
+/******************************************************************************
+  Lengths of prefixes that are used in the wrappers to the left of module name
+
+  Note: We need to remember that these prefixes are enclosed in quotes.
+        But we need the actual atom length that Prolog uses. So, we deduct 2.
+******************************************************************************/
+
+
+
+/* length of FLORA_PREFIX'FLORA_MODULE_TAG */
+
+
+
+
+
+
+
+
+
+
+
+
+
+%% support for undefinedness checks
+
+
+%% used for generating new oids statically
+%% We had previously #1'FLORA_COMPILATION_ID', but this caused gpp error in
+%% \dump(file). Apparently a gpp bug. So changed to X'FLORA_COMPILATION_ID'
+
+
+
+
+
+
+
+
+
+
+
+
+'_$_$_flora''mod''main''tblflapply'(show,'Show1',20140202,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(show,'Show1',20140202,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(show,'Show2',20140402,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(show,'Show3',20140602,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(show,'Show4',20140802,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(show,'Show5',20141005,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(judge,'Show1','Judy',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(judge,'Show1','Lucy',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(judge,'Show1','Irving',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(judge,'Show2','Judy',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(judge,'Show2','Phil',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(judge,'Show3','Irving',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(judge,'Show3','Phil',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(judge,'Show3','Oscar',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(judge,'Show4','Lucy',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(judge,'Show4','Oscar',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(judge,'Show5','Lucy',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(judge,'Show5','Irving',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(judge,'Show5','Phil',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(contestant,'Joe',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(contestant,'Mary',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(contestant,'Bess',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(contestant,'Don',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(contestant,'Bob',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(contestant,'Tom',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(contestant,'Ann',__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Joe','Barcarolle','Show1','Judy',7,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Joe','Barcarolle','Show1','Lucy',8,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Joe','Barcarolle','Show1','Irving',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Mary','Barcarolle','Show1','Judy',5,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Mary','Barcarolle','Show1','Lucy',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Mary','Barcarolle','Show1','Irving',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Mary','Giselle','Show1','Judy',9,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Mary','Giselle','Show1','Lucy',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Mary','Giselle','Show1','Irving',8,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bess','Besame Mucho','Show1','Judy',4,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bess','Besame Mucho','Show1','Lucy',5,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bess','Besame Mucho','Show1','Irving',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Don','Besame Mucho','Show1','Judy',9,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Don','Besame Mucho','Show1','Lucy',9,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Don','Besame Mucho','Show1','Irving',7,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bob','Swan Lake','Show2','Judy',8,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bob','Swan Lake','Show2','Phil',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Mary','Habanera','Show2','Judy',3,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Mary','Habanera','Show2','Phil',5,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Mary','Besame Mucho','Show2','Judy',9,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Mary','Besame Mucho','Show2','Phil',10,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Ann','Habanera','Show2','Judy',7,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Ann','Habanera','Show2','Phil',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bess','Giselle','Show2','Judy',8,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bess','Giselle','Show2','Phil',7,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Tom','Besame Mucho','Show2','Judy',5,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Tom','Besame Mucho','Show2','Phil',5,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Tom','The Tramp','Show2','Judy',7,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Tom','The Tramp','Show2','Phil',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bob','The Tramp','Show3','Irving',8,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bob','The Tramp','Show3','Phil',7,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bob','The Tramp','Show3','Oscar',9,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Ann','Besame Mucho','Show3','Irving',7,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Ann','Besame Mucho','Show3','Phil',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Ann','Besame Mucho','Show3','Oscar',4,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bess','Swan Lake','Show3','Irving',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bess','Swan Lake','Show3','Phil',8,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bess','Swan Lake','Show3','Oscar',7,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Tom','Barcarolle','Show3','Irving',9,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Tom','Barcarolle','Show3','Phil',7,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Tom','Barcarolle','Show3','Oscar',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Don','Giselle','Show3','Irving',8,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Don','Giselle','Show3','Phil',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Don','Giselle','Show3','Oscar',9,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Joe','The Tramp','Show4','Lucy',7,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Joe','The Tramp','Show4','Oscar',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bob','Barcarolle','Show4','Lucy',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bob','Barcarolle','Show4','Oscar',8,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Ann','Besame Mucho','Show4','Oscar',9,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Ann','Besame Mucho','Show4','Oscar',8,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Tom','The Tramp','Show4','Lucy',8,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Tom','The Tramp','Show4','Oscar',10,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Tom','Barcarolle','Show4','Lucy',5,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Tom','Barcarolle','Show4','Oscar',5,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bob','Swan Lake','Show5','Lucy',3,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bob','Swan Lake','Show5','Irving',5,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bob','Swan Lake','Show5','Phil',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bob','Giselle','Show5','Lucy',4,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bob','Giselle','Show5','Irving',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bob','Giselle','Show5','Phil',8,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Mary','Barcarolle','Show5','Lucy',5,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Mary','Barcarolle','Show5','Irving',7,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Mary','Barcarolle','Show5','Phil',10,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Mary','Besame Mucho','Show5','Lucy',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Mary','Besame Mucho','Show5','Irving',8,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Mary','Besame Mucho','Show5','Phil',7,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Ann','Besame Mucho','Show5','Lucy',7,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Ann','Besame Mucho','Show5','Irving',9,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Ann','Besame Mucho','Show5','Phil',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bess','Besame Mucho','Show5','Lucy',9,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bess','Besame Mucho','Show5','Irving',8,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bess','Besame Mucho','Show5','Phil',8,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bess','Habanera','Show5','Lucy',8,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bess','Habanera','Show5','Irving',7,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Bess','Habanera','Show5','Phil',10,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Tom','The Tramp','Show5','Lucy',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Tom','The Tramp','Show5','Irving',6,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Tom','The Tramp','Show5','Phil',8,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Don','The Tramp','Show5','Lucy',5,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Don','The Tramp','Show5','Irving',8,__newcontextvar3).
+'_$_$_flora''mod''main''tblflapply'(scores,'Don','The Tramp','Show5','Phil',7,__newcontextvar3).

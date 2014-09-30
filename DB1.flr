@@ -1,3 +1,32 @@
+/*
+I pledge my honor that all parts of this project were done by me individually
+and without collaboration with others.
+ Name: Shachee Mishra
+ SBU ID: 109915951
+ email: shachee.mishra@stonybrook.edu
+
+
+*/
+
+
+
+
+
+
+/*
+The schema contains 4 relations:
+
+1. show (showID, date_of_show)
+	pric2 key: showID
+2. judge (judgeID,showID, judgeName)
+	pric2 key: judgeID
+3. contestant(contestantName)
+	pric2 key: contestantName
+4. scores (contestantName,ArtPieceName,ShowName,Judge,score)
+	pric2 key: contestantName,ArtPieceName,ShowName,Judge
+*/
+
+
 show(Show1,20140202).
 show(Show1,20140202).
 show(Show2,20140402).
@@ -5,19 +34,19 @@ show(Show3,20140602).
 show(Show4,20140802).
 show(Show5,20141005).
 
-judge(Show1,Judy).
-judge(Show1,Lucy).
-judge(Show1,Irving).
-judge(Show2,Judy).
-judge(Show2,Phil).
-judge(Show3,Irving).
-judge(Show3,Phil).
-judge(Show3,Oscar).
-judge(Show4,Lucy).
-judge(Show4,Oscar).
-judge(Show5,Lucy).
-judge(Show5,Irving).
-judge(Show5,Phil).
+judge(s11,Show1,Judy).
+judge(s12,Show1,Lucy).
+judge(s13,Show1,Irving).
+judge(s21,Show2,Judy).
+judge(s22,Show2,Phil).
+judge(s31,Show3,Irving).
+judge(s32,Show3,Phil).
+judge(s33,Show3,Oscar).
+judge(s41,Show4,Lucy).
+judge(s42,Show4,Oscar).
+judge(s51,Show5,Lucy).
+judge(s52,Show5,Irving).
+judge(s53,Show5,Phil).
 
 contestant(Joe).
 contestant(Mary).
@@ -113,124 +142,103 @@ scores(Don,'The Tramp',Show5,Lucy,5).
 scores(Don,'The Tramp',Show5,Irving,8).
 scores(Don,'The Tramp',Show5,Phil,7).
 
+// This is query for returning pair of contestants who happened to audition the same piece during the same show
+//	and got the same score from at least one judge
 
-checkSame(?U1,?U2) :-
+Query1(?U1,?U2) :-
 	scores(?U1,?A,?Show,?J,?Score), scores(?U2,?A,?Show,?J,?Score),
-//	?U1 != ?U2.
 	?U1 @< ?U2.
 	
-sameAvg(?U1,?U2,?Avg1) :-
-	contestant(?U1),
-	contestant(?U2),
-	?Avg1=avg{?Score1|scores(?U1,?A,?S1,?_J,?Score1),scores(?U2,?A,?S2,?_J,?Score2),?U1!=?U2},
-	?Avg2=avg{?Score2|scores(?U1,?A,?S1,?_J,?Score1),scores(?U2,?A,?S2,?_J,?Score2),?U1!=?U2},
-	?Avg1=?Avg2,
-	?U1 @< ?U2.
-//	?S1 != ?S2.
-//	?U1 @< ?U2.
-
-getAvg(?U1,?Avg1) :-
-	contestant(?U1),?Avg1=avg{?Score|scores(?U1,?_A,?_S,?_J,?Score)}.
+// This is the query for all pairs of contestants who happened to audition the same piece (in possibly different
+//	shows) and got the same average score for that piece.
 
 
+
+	//Function to get Average score of a contestant. 
 	
-samePc(?U1,?U2,?A,?S1,?S2,?L1,?L2) :-
+	getAvgScore(?U1,?A,?S1,?Score1,?L) :-
+		contestant(?U1),
+		?L=avg{?Score1[?U1,?A,?S1]|scores(?U1,?A,?S1,?_J,?Score1)}.
+
+Query2(?U1,?U2) :-
 	contestant(?U1),
 	contestant(?U2),
-	getAvgScore(?U1,?A,?S1,?,?L1),getAvgScore(?U2,?A,?S2,?,?L2),
+	getAvgScore(?U1,?Avg,?,?,?L1),getAvgScore(?U2,?Avg,?,?,?L2),
 	?L1=?L2,
-	//?Av=avg{?Score1|scores(?U1,?A,?S1,?_J,?Score1)},
-	//?Sum=sum{?Score1|scores(?U1,?A,?S1,?_J,?Score1)},
-	//?Count=count{?Score1|scores(?U1,?A,?S1,?_J,?Score1)},
-	//scores(?U1,?A,?S1,?_J,avg{?Score1[?U1]|scores(?U1,?A,?S1,?_J,?Score1)}),scores(?U2,?A,?S2,?_J,?Sc),
 	?U1 @< ?U2.
-//	?S1 != ?S2.
-//	?U1 @< ?U2.	
+	
+// This is the query for all pairs of contestants who auditioned the same piece in (possibly different) shows that
+// had at least 3 judges and the two contestants got the same highest score.
+	
 
-getAvgScore(?U1,?A,?S1,?Score1,?L) :-
-	contestant(?U1),
-	?L=avg{?Score1[?U1,?A,?S1]|scores(?U1,?A,?S1,?_J,?Score1)}.
-//	scores(?U1,?A,?S1,?_J,?L).
-//	?U1 @< ?U2.	
-
-getHighestScore(?U1,?A,?S1,?Score1,?L,?C) :-
-	contestant(?U1),
-	?L=max{?Score1[?U1,?A,?S1]|scores(?U1,?A,?S1,?_J,?Score1)},
-	?C=count{?Score1[?U1,?A,?S1]|scores(?U1,?A,?S1,?_J,?Score1)}.
-
-
-sameHighestScore(?U1,?U2,?A,?S1,?S2,?L1,?L2) :-
+	//Function to get highest score of contestant
+	getHighestScore(?U1,?A,?S1,?Score1,?L,?C) :-
+		contestant(?U1),
+		?L=max{?Score1[?U1,?A,?S1]|scores(?U1,?A,?S1,?_J,?Score1)},
+		?C=count{?Score1[?U1,?A,?S1]|scores(?U1,?A,?S1,?_J,?Score1)}.
+	
+Query3(?U1,?U2) :-
 	contestant(?U1),
 	contestant(?U2),
-	getHighestScore(?U1,?A,?S1,?,?L1,?C1),getHighestScore(?U2,?A,?S2,?,?L2,?C2),
+	getHighestScore(?U1,?_A,?,?,?L1,?C1),getHighestScore(?U2,?_A,?,?,?L2,?C2),
 	?L1=?L2,
 	?C1>2,
 	?C2>2,
 	?U1 @< ?U2.
-//	?S1 != ?S2.
-//	?U1 @< ?U2.	
 
 
-	
-performedArts(?U1,?Ct):-
-	contestant(?U1),
-	?Ct=setof{?Art[?U1](asc)|scores(?U1,?Art,?,?,?)}.
+// This is the query for all pairs of contestants such that the first contestants has performed all the pieces of the
+// second contestant (possibly in different shows)
 
-sameArt(?U1,?U2,?Ct1,?Ct2,?C1):-
-	//performedArts(?U1,?Ct1),
-	//performedArts(?U2,?Ct2),
- 	?Ct1=setof{?Art[?U1]|scores(?U1,?Art,?,?,?)},
-	?Ct2=setof{?Art[?U2]|scores(?U2,?Art,?,?,?)},
-//	?C1 = ?U1[?Art+>>?Ct2],
-	?U1 != ?U2,
-	?C1 = ?Ct1[|=> contains(?Ct2)|]@\btp.
-//	?C1 == true.
 
-test(?Ct1):-
-	?Ct2 =[a,b,c,d];
-	\list[append([?Ct2])-> ?Ct1]@\btp.
- 
-getArt(?N,?C):-
-	scores(?N,?C,?,?,?).
+// PART A: without the use of quantifiers.
 	
-	
-checkSame2(?U1,?U2) :-
-	scores(?U1,?A,?Show,?J,?Score), scores(?U2,?A,?Show,?J,?Score),
-	?U1 != ?U2.
+	getArtContestantPair(?N,?C):-
+			scores(?N,?C,?,?,?).
 
-	chained(?U1,?U2) :- checkSame2(?U1,?U2).
-	chained(?U1,?U3) :-  chained(?U1,?U2) , checkSame2(?U2,?U3), ?U2 != ?U3, ?U1 != ?U2 , ?U1 != ?U3  .
+	getOverLappingPairs(?U1,?U2) :-
+		contestant(?U1),
+		contestant(?U2),
+		\naf getArtContestantPair(?U1,?P),getArtContestantPair(?U2,?P),
+		?U1 != ?U2.
 
-	chained2(?U1,?U2) :- chained(?U1 ,?U2), ?U1 @< ?U2.
+	getAllPairs(?U1,?U2) :-
+		contestant(?U1),
+		contestant(?U2),	
+		?U1 != ?U2.
 	
+Query4a(?U1,?U2 ) :- getAllPairs(?U1,?U2) , \naf getOverLappingPairs(?U1,?U2) .
+
+
+// PART B: using explicit quantifiers
 	
-	
-q4b(?U1,?U2) :-
-	forall(?P)^(getArt(?U1,?P)~~>getArt(?U2,?P) ),
+Query4b(?U1,?U2) :-
+	forall(?P)^(getArtContestantPair(?U1,?P)~~>getArtContestantPair(?U2,?P) ),
 	contestant(?U1),
 	contestant(?U2),
 	?U1 != ?U2. 
+
 	
+// Find all chained co-auditions. A chained co-auditions is the transitive closure of the following
+// binary relation: X and Y (directly) co-auditioned iff they both performed the same piece in the
+// same show and got the same score from at least one (same) judge. Thus, a chained co-audition
+// can be either a direct or an indirect co-audition.
 	
-q4atest(?U1,?Ct1,?U2,?Ct2) :- 
-	performedArts(?U1,?Ct1), 
-	performedArts(?U2,?Ct2),
-	?U1 != ?U2,
-	\naf ?Ct1 @< ?Ct2.
-	
-	
-qq(?U1,?U2) :-
-	contestant(?U1),
-	contestant(?U2),
-	\naf getArt(?U1,?P),getArt(?U2,?P),
+	checkSameScores(?U1,?U2) :-
+	scores(?U1,?A,?Show,?J,?Score), scores(?U2,?A,?Show,?J,?Score),
 	?U1 != ?U2.
 
-qq1(?U1,?U2) :-
-	contestant(?U1),
-	contestant(?U2),	
-	?U1 != ?U2.
+	chained(?U1,?U2) :- checkSameScores(?U1,?U2).
+	chained(?U1,?U3) :-  chained(?U1,?U2) , checkSameScores(?U2,?U3), ?U2 != ?U3, ?U1 != ?U2 , ?U1 != ?U3  .
+
+	Query5(?U1,?U2) :- chained(?U1 ,?U2), ?U1 @< ?U2.
 	
-q4a(?U1,?U2 ) :- qq1(?U1,?U2) , \naf qq(?U1,?U2) .
+	
+	
+	
+
+	
+	
 	
 	
 	

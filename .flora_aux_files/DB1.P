@@ -1,0 +1,525 @@
+
+:-(compiler_options([xpp_on,canonical])).
+
+/********** Tabling and Trailer Control Variables ************/
+
+#define EQUALITYnone
+#define INHERITANCEflogic
+#define TABLINGnonincremental
+#define TABLINGvariant
+#define CUSTOMnone
+
+
+/************************************************************************
+  file: headerinc/flrheader_inc.flh
+
+  Author(s): Guizhen Yang
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+:-(compiler_options([xpp_on])).
+#mode standard Prolog
+
+#include "flrheader.flh"
+#include "flora_porting.flh"
+
+/***********************************************************************/
+
+/************************************************************************
+  file: headerinc/flrheader2_inc.flh
+
+  Author(s): Michael Kifer
+
+  This file is automatically included by the FLORA-2 compiler.
+  It includes files that must be included in the header and typically
+  contain some Prolog statements. Such files cannot appear
+  in flrheader.flh because flrheader.flh is included in various restricted
+  contexts where Prolog statements are not allowed.
+************************************************************************/
+
+:-(compiler_options([xpp_on])).
+
+#define TABLING_CONNECTIVE  :-
+
+%% flora_tabling_methods is included here to affect preprocessing of
+%% flrtable/flrhilogtable.flh dynamically
+#include "flora_tabling_methods.flh"
+
+#ifndef FLORA_NONTABLED_MODULE
+#include "flrtable.flh"
+#include "flrhilogtable.flh"
+#endif
+
+#include "flrtable_always.flh"
+
+#include "flrauxtables.flh"
+
+%% include list of tabled predicates
+#if defined(FLORA_FLT_FILENAME)
+#include FLORA_FLT_FILENAME
+#endif
+
+/***********************************************************************/
+
+/************************************************************************
+  file: headerinc/flrdyna_inc.flh
+
+  Author(s): Chang Zhao
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+:-(compiler_options([xpp_on])).
+
+#define TABLING_CONNECTIVE  :-
+
+#include "flrdyndeclare.flh"
+
+/***********************************************************************/
+
+/************************************************************************
+  file: headerinc/flrindex_P_inc.flh
+
+  Author(s): Michael Kifer
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+:-(compiler_options([xpp_on])).
+
+#include "flrindex_P.flh"
+
+/***********************************************************************/
+
+/************************************************************************
+  file: headerinc/flrdefinition_inc.flh
+
+  Author(s): Guizhen Yang
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+#include "flrdefinition.flh"
+
+/***********************************************************************/
+
+/************************************************************************
+  file: headerinc/flrtrailerregistry_inc.flh
+
+  Author(s): Michael Kifer
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+#include "flrtrailerregistry.flh"
+
+/***********************************************************************/
+
+/************************************************************************
+  file: headerinc/flrrefreshtable_inc.flh
+
+  Author(s): Michael Kifer
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+:-(compiler_options([xpp_on])).
+
+#include "flrrefreshtable.flh"
+
+/***********************************************************************/
+
+/************************************************************************
+  file: headerinc/flrdescriptor_metafacts_inc.flh
+
+  Author(s): Michael Kifer
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+:-(compiler_options([xpp_on])).
+
+#include "flrdescriptor_metafacts.flh"
+
+/***********************************************************************/
+
+/************************************************************************
+  file: syslibinc/flrimportedcalls_inc.flh
+
+  Author(s): Michael Kifer
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+%% Loads the file with all the import statements for predicates
+%% that must be known everywhere
+
+:-(compiler_options([xpp_on])).
+
+#mode standard Prolog
+
+#if !defined(FLORA_TERMS_FLH)
+#define FLORA_TERMS_FLH
+#include "flora_terms.flh"
+#endif
+
+?-(:(flrlibman,flora_load_library(FLLIBIMPORTEDCALLS))).
+
+/***********************************************************************/
+
+/************************************************************************
+  file: headerinc/flrpatch_inc.flh
+
+  Author(s): Guizhen Yang
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+#include "flrexportcheck.flh"
+#include "flrpatch.flh"
+/***********************************************************************/
+
+/************************************************************************
+  file: headerinc/flropposes_inc.flh
+
+  Author(s): Michael Kifer
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+#include "flropposes.flh"
+
+/***********************************************************************/
+
+/************************************************************************
+  file: headerinc/flrdyna_inc.flh
+
+  Author(s): Chang Zhao
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+:-(compiler_options([xpp_on])).
+
+#include "flrdyna.flh"
+
+/***********************************************************************/
+
+/************************************************************************
+  file: syslibinc/flraggavg_inc.flh
+
+  Author(s): Guizhen Yang
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+:-(compiler_options([xpp_on])).
+
+#mode standard Prolog
+
+#if !defined(FLORA_TERMS_FLH)
+#define FLORA_TERMS_FLH
+#include "flora_terms.flh"
+#endif
+
+?-(:(flrlibman,flora_load_library(FLLIBAVG))).
+
+/***********************************************************************/
+
+/************************************************************************
+  file: syslibinc/flraggcount_inc.flh
+
+  Author(s): Guizhen Yang
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+:-(compiler_options([xpp_on])).
+
+#mode standard Prolog
+
+#if !defined(FLORA_TERMS_FLH)
+#define FLORA_TERMS_FLH
+#include "flora_terms.flh"
+#endif
+
+?-(:(flrlibman,flora_load_library(FLLIBCOUNT))).
+
+/***********************************************************************/
+
+/************************************************************************
+  file: syslibinc/flrclause_inc.flh
+
+  Author(s): Chang Zhao
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+:-(compiler_options([xpp_on])).
+
+#mode standard Prolog
+
+#if !defined(FLORA_TERMS_FLH)
+#define FLORA_TERMS_FLH
+#include "flora_terms.flh"
+#endif
+
+?-(:(flrlibman,flora_load_library(FLLIBCLAUSE))).
+
+/***********************************************************************/
+
+/************************************************************************
+  file: syslibinc/flraggmax_inc.flh
+
+  Author(s): Guizhen Yang
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+:-(compiler_options([xpp_on])).
+
+#mode standard Prolog
+
+#if !defined(FLORA_TERMS_FLH)
+#define FLORA_TERMS_FLH
+#include "flora_terms.flh"
+#endif
+
+?-(:(flrlibman,flora_load_library(FLLIBMAX))).
+
+/***********************************************************************/
+
+/************************************************************************
+  file: syslibinc/flrcolset_inc.flh
+
+  Author(s): Guizhen Yang
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+:-(compiler_options([xpp_on])).
+
+#mode standard Prolog
+
+#if !defined(FLORA_TERMS_FLH)
+#define FLORA_TERMS_FLH
+#include "flora_terms.flh"
+#endif
+
+?-(:(flrlibman,flora_load_library(FLLIBCOLLECTSET))).
+
+/***********************************************************************/
+
+/************************************************************************
+  file: syslibinc/flrcolset_inc.flh
+
+  Author(s): Michael Kifer
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+:-(compiler_options([xpp_on])).
+
+#mode standard Prolog
+
+#if !defined(FLORA_TERMS_FLH)
+#define FLORA_TERMS_FLH
+#include "flora_terms.flh"
+#endif
+
+?-(:(flrlibman,flora_load_library(FLLIBSORTBY))).
+
+/***********************************************************************/
+
+/************************************************************************
+  file: libinc/flrbasetype_inc.flh
+
+  Author(s): Michael Kifer
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+:-(compiler_options([xpp_on])).
+
+#mode standard Prolog
+
+#if !defined(FLORA_TERMS_FLH)
+#define FLORA_TERMS_FLH
+#include "flora_terms.flh"
+#endif
+
+?-(':'(flrlibman,flora_load_system_module(FLSYSMODBASETYPE))).
+
+/***********************************************************************/
+
+ 
+#if !defined(FLORA_FDB_FILENAME)
+#if !defined(FLORA_LOADDYN_DATA)
+#define FLORA_LOADDYN_DATA
+#endif
+#define FLORA_FDB_FILENAME  'DB1.fdb'
+?-(:(flrutils,flora_loaddyn_data(FLORA_FDB_FILENAME,FLORA_THIS_MODULE_NAME,'fdb'))).
+#else
+#if !defined(FLORA_READ_CANONICAL_AND_INSERT)
+#define FLORA_READ_CANONICAL_AND_INSERT
+#endif
+?-(:(flrutils,flora_read_canonical_and_insert(FLORA_FDB_FILENAME,FLORA_THIS_FDB_STORAGE))).
+#endif
+
+ 
+#if !defined(FLORA_FLM_FILENAME)
+#if !defined(FLORA_LOADDYN_DATA)
+#define FLORA_LOADDYN_DATA
+#endif
+#define FLORA_FLM_FILENAME  'DB1.flm'
+?-(:(flrutils,flora_loaddyn_data(FLORA_FLM_FILENAME,FLORA_THIS_MODULE_NAME,'flm'))).
+#else
+#if !defined(FLORA_READ_CANONICAL_AND_INSERT)
+#define FLORA_READ_CANONICAL_AND_INSERT
+#endif
+?-(:(flrutils,flora_read_descriptor_metafacts_canonical_and_insert(DB1,_ErrNum))).
+#endif
+
+ 
+#if !defined(FLORA_FLD_FILENAME)
+#if !defined(FLORA_LOADDYN_DATA)
+#define FLORA_LOADDYN_DATA
+#endif
+#define FLORA_FLD_FILENAME  'DB1.fld'
+?-(:(flrutils,flora_loaddyn_data(FLORA_FLD_FILENAME,FLORA_THIS_MODULE_NAME,'fld'))).
+#else
+#if !defined(FLORA_READ_CANONICAL_AND_INSERT)
+#define FLORA_READ_CANONICAL_AND_INSERT
+#endif
+?-(:(flrutils,flora_read_canonical_and_insert(FLORA_FLD_FILENAME,FLORA_THIS_FLD_STORAGE))).
+#endif
+
+ 
+#if !defined(FLORA_FLS_FILENAME)
+#if !defined(FLORA_LOADDYN_DATA)
+#define FLORA_LOADDYN_DATA
+#endif
+#define FLORA_FLS_FILENAME  'DB1.fls'
+?-(:(flrutils,flora_loaddyn_data(FLORA_FLS_FILENAME,FLORA_THIS_MODULE_NAME,'fls'))).
+#else
+#if !defined(FLORA_READ_CANONICAL_AND_INSERT)
+#define FLORA_READ_CANONICAL_AND_INSERT
+#endif
+?-(:(flrutils,flora_read_symbols_canonical_and_insert(FLORA_FLS_FILENAME,FLORA_THIS_FLS_STORAGE,_SymbolErrNum))).
+#endif
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Rule signatures %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+?-(fllibinsrulesig(4,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,110,FLORA_THIS_WORKSPACE(d^tblflapply)(checkSame,__U1,__U2,'_$ctxt'(_CallerModuleVar,4,__newcontextvar1)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__A,__Show,__J,__Score,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,4)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U2,__A,__Show,__J,__Score,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,4)),@<(__U1,__U2))),null,'_$_$_flora''rule_enabled'(4,'DB1.flr',FLORA_THIS_MODULE_NAME),fllibexecute_delayed_calls([__A,__J,__Score,__Show,__U1,__U2],[__U1,__U2]),true)).
+?-(fllibinsrulesig(6,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,111,FLORA_THIS_WORKSPACE(d^tblflapply)(sameAvg,__U1,__U2,__Avg1,'_$ctxt'(_CallerModuleVar,6,__newcontextvar1)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,6)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,6)),','(','(fllibavg(__Score1,[],','(','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__A,__S1,___J,__Score1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar4,6)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U2,__A,__S2,___J,__Score2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar5,6)),fllibdelayedliteral('!=','DB1.flr',125,[__U1,__U2]))),fllibexecute_delayed_calls([__A,__S1,__S2,__Score1,__Score2,__U1,__U2,___J],[])),__newvar6),=(__Avg1,__newvar6)),','(','(fllibavg(__Score2,[],','(','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__A,__S1,___J,__Score1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar7,6)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U2,__A,__S2,___J,__Score2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar8,6)),fllibdelayedliteral('!=','DB1.flr',126,[__U1,__U2]))),fllibexecute_delayed_calls([__A,__S1,__S2,__Score1,__Score2,__U1,__U2,___J],[])),__newvar9),=(__Avg2,__newvar9)),','(=(__Avg1,__Avg2),@<(__U1,__U2)))))),null,'_$_$_flora''rule_enabled'(6,'DB1.flr',FLORA_THIS_MODULE_NAME),fllibexecute_delayed_calls([__A,__Avg1,__Avg2,__S1,__S2,__Score1,__Score2,__U1,__U2,___J],[__Avg1,__U1,__U2]),true)).
+?-(fllibinsrulesig(8,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,112,FLORA_THIS_WORKSPACE(d^tblflapply)(getAvg,__U1,__Avg1,'_$ctxt'(_CallerModuleVar,8,__newcontextvar1)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,8)),','(fllibavg(__Score,[],','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,___A,___S,___J,__Score,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,8)),fllibexecute_delayed_calls([__Score,__U1,___A,___J,___S],[])),__newvar4),=(__Avg1,__newvar4))),null,'_$_$_flora''rule_enabled'(8,'DB1.flr',FLORA_THIS_MODULE_NAME),fllibexecute_delayed_calls([__Avg1,__Score,__U1,___A,___J,___S],[__Avg1,__U1]),true)).
+?-(fllibinsrulesig(10,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,113,FLORA_THIS_WORKSPACE(d^tblflapply)(samePc,__U1,__U2,__A,__S1,__S2,__L1,__L2,'_$ctxt'(_CallerModuleVar,10,__newcontextvar1)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,10)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,10)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(getAvgScore,__U1,__A,__S1,__newdontcarevar4,__L1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar5,10)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(getAvgScore,__U2,__A,__S2,__newdontcarevar6,__L2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar7,10)),','(=(__L1,__L2),@<(__U1,__U2)))))),null,'_$_$_flora''rule_enabled'(10,'DB1.flr',FLORA_THIS_MODULE_NAME),fllibexecute_delayed_calls([__A,__L1,__L2,__S1,__S2,__U1,__U2,__newdontcarevar8],[__A,__L1,__L2,__S1,__S2,__U1,__U2]),true)).
+?-(fllibinsrulesig(12,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,114,FLORA_THIS_WORKSPACE(d^tblflapply)(getAvgScore,__U1,__A,__S1,__Score1,__L,'_$ctxt'(_CallerModuleVar,12,__newcontextvar1)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,12)),','(fllibavg(__Score1,[__U1,__A,__S1],','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__A,__S1,___J,__Score1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,12)),fllibexecute_delayed_calls([__A,__S1,__Score1,__U1,___J],[])),__newvar4),=(__L,__newvar4))),null,'_$_$_flora''rule_enabled'(12,'DB1.flr',FLORA_THIS_MODULE_NAME),fllibexecute_delayed_calls([__A,__L,__S1,__Score1,__U1,___J],[__A,__L,__S1,__Score1,__U1]),true)).
+?-(fllibinsrulesig(14,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,115,FLORA_THIS_WORKSPACE(d^tblflapply)(getHighestScore,__U1,__A,__S1,__Score1,__L,__C,'_$ctxt'(_CallerModuleVar,14,__newcontextvar1)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,14)),','(','(fllibmax(__Score1,[__U1,__A,__S1],','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__A,__S1,___J,__Score1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,14)),fllibexecute_delayed_calls([__A,__S1,__Score1,__U1,___J],[])),__newvar4),=(__L,__newvar4)),','(fllibcount(__Score1,[__U1,__A,__S1],','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__A,__S1,___J,__Score1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar5,14)),fllibexecute_delayed_calls([__A,__S1,__Score1,__U1,___J],[])),__newvar6),=(__C,__newvar6)))),null,'_$_$_flora''rule_enabled'(14,'DB1.flr',FLORA_THIS_MODULE_NAME),fllibexecute_delayed_calls([__A,__C,__L,__S1,__Score1,__U1,___J],[__A,__C,__L,__S1,__Score1,__U1]),true)).
+?-(fllibinsrulesig(16,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,116,FLORA_THIS_WORKSPACE(d^tblflapply)(sameHighestScore,__U1,__U2,__A,__S1,__S2,__L1,__L2,'_$ctxt'(_CallerModuleVar,16,__newcontextvar1)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,16)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,16)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(getHighestScore,__U1,__A,__S1,__newdontcarevar4,__L1,__C1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar5,16)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(getHighestScore,__U2,__A,__S2,__newdontcarevar6,__L2,__C2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar7,16)),','(=(__L1,__L2),','(fllibdelayedliteral(>,'DB1.flr',167,[__C1,2]),','(fllibdelayedliteral(>,'DB1.flr',168,[__C2,2]),@<(__U1,__U2)))))))),null,'_$_$_flora''rule_enabled'(16,'DB1.flr',FLORA_THIS_MODULE_NAME),fllibexecute_delayed_calls([__A,__C1,__C2,__L1,__L2,__S1,__S2,__U1,__U2,__newdontcarevar8],[__A,__L1,__L2,__S1,__S2,__U1,__U2]),true)).
+?-(fllibinsrulesig(18,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,117,FLORA_THIS_WORKSPACE(d^tblflapply)(performedArts,__U1,__Ct,'_$ctxt'(_CallerModuleVar,18,__newcontextvar1)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,18)),','(fllibsetsortby(__Art,[__U1],','(asc,asc),','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__Art,__newdontcarevar3,__newdontcarevar4,__newdontcarevar5,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar6,18)),fllibexecute_delayed_calls([__Art,__U1,__newdontcarevar7],[])),__newvar8),=(__Ct,__newvar8))),null,'_$_$_flora''rule_enabled'(18,'DB1.flr',FLORA_THIS_MODULE_NAME),fllibexecute_delayed_calls([__Art,__Ct,__U1,__newdontcarevar9],[__Ct,__U1]),true)).
+?-(fllibinsrulesig(20,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,118,FLORA_THIS_WORKSPACE(d^tblflapply)(sameArt,__U1,__U2,__Ct1,__Ct2,__C1,'_$ctxt'(_CallerModuleVar,20,__newcontextvar1)),','(','(fllibsetof(__Art,[__U1],','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__Art,__newdontcarevar2,__newdontcarevar3,__newdontcarevar4,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar5,20)),fllibexecute_delayed_calls([__Art,__U1,__newdontcarevar6],[])),__newvar7),=(__Ct1,__newvar7)),','(','(fllibsetof(__Art,[__U2],','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U2,__Art,__newdontcarevar8,__newdontcarevar9,__newdontcarevar10,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar11,20)),fllibexecute_delayed_calls([__Art,__U2,__newdontcarevar12],[])),__newvar13),=(__Ct2,__newvar13)),','(fllibdelayedliteral('!=','DB1.flr',185,[__U1,__U2]),','(=(__C1,__Ct1),FLORA_WORKSPACE(\\basetype,d^iboolsig)(__Ct1,flapply(contains,__Ct2),'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar14,20)))))),null,'_$_$_flora''rule_enabled'(20,'DB1.flr',FLORA_THIS_MODULE_NAME),fllibexecute_delayed_calls([__Art,__C1,__Ct1,__Ct2,__U1,__U2,__newdontcarevar15],[__C1,__Ct1,__Ct2,__U1,__U2]),true)).
+?-(fllibinsrulesig(22,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,119,FLORA_THIS_WORKSPACE(d^tblflapply)(test,__Ct1,'_$ctxt'(_CallerModuleVar,22,__newcontextvar1)),';'(=(__Ct2,[a,b,c,d]),FLORA_WORKSPACE(\\basetype,d^mvd)('\\list',flapply(append,[__Ct2]),__Ct1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,22))),null,'_$_$_flora''rule_enabled'(22,'DB1.flr',FLORA_THIS_MODULE_NAME),fllibexecute_delayed_calls([__Ct1,__Ct2],[__Ct1]),true)).
+?-(fllibinsrulesig(24,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,120,FLORA_THIS_WORKSPACE(d^tblflapply)(getArt,__N,__C,'_$ctxt'(_CallerModuleVar,24,__newcontextvar1)),FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__N,__C,__newdontcarevar2,__newdontcarevar3,__newdontcarevar4,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar5,24)),null,'_$_$_flora''rule_enabled'(24,'DB1.flr',FLORA_THIS_MODULE_NAME),fllibexecute_delayed_calls([__C,__N,__newdontcarevar6],[__C,__N]),true)).
+?-(fllibinsrulesig(26,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,121,FLORA_THIS_WORKSPACE(d^tblflapply)(checkSame2,__U1,__U2,'_$ctxt'(_CallerModuleVar,26,__newcontextvar1)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__A,__Show,__J,__Score,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,26)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U2,__A,__Show,__J,__Score,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,26)),fllibdelayedliteral('!=','DB1.flr',199,[__U1,__U2]))),null,'_$_$_flora''rule_enabled'(26,'DB1.flr',FLORA_THIS_MODULE_NAME),fllibexecute_delayed_calls([__A,__J,__Score,__Show,__U1,__U2],[__U1,__U2]),true)).
+?-(fllibinsrulesig(28,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,122,FLORA_THIS_WORKSPACE(d^tblflapply)(chained,__U1,__U2,'_$ctxt'(_CallerModuleVar,28,__newcontextvar1)),FLORA_THIS_WORKSPACE(d^tblflapply)(checkSame2,__U1,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,28)),null,'_$_$_flora''rule_enabled'(28,'DB1.flr',FLORA_THIS_MODULE_NAME),null,true)).
+?-(fllibinsrulesig(30,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,123,FLORA_THIS_WORKSPACE(d^tblflapply)(chained,__U1,__U3,'_$ctxt'(_CallerModuleVar,30,__newcontextvar1)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(chained,__U1,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,30)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(checkSame2,__U2,__U3,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,30)),','(fllibdelayedliteral('!=','DB1.flr',202,[__U2,__U3]),','(fllibdelayedliteral('!=','DB1.flr',202,[__U1,__U2]),fllibdelayedliteral('!=','DB1.flr',202,[__U1,__U3]))))),null,'_$_$_flora''rule_enabled'(30,'DB1.flr',FLORA_THIS_MODULE_NAME),fllibexecute_delayed_calls([__U1,__U2,__U3],[__U1,__U3]),true)).
+?-(fllibinsrulesig(32,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,124,FLORA_THIS_WORKSPACE(d^tblflapply)(chained2,__U1,__U2,'_$ctxt'(_CallerModuleVar,32,__newcontextvar1)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(chained,__U1,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,32)),@<(__U1,__U2)),null,'_$_$_flora''rule_enabled'(32,'DB1.flr',FLORA_THIS_MODULE_NAME),null,true)).
+?-(fllibinsrulesig(34,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,125,FLORA_THIS_WORKSPACE(d^tblflapply)(q4b,__U1,__U2,'_$ctxt'(_CallerModuleVar,34,__newcontextvar1)),','(flibnafdelay(flora_naf(FLORA_THIS_WORKSPACE(tabled_unnumber_call)(','(','(FLORA_THIS_WORKSPACE(d^tblflapply)(getArt,__U1,__newquantvar4,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,34)),flibnafdelay(flora_naf(FLORA_THIS_WORKSPACE(tabled_unnumber_call)(','(FLORA_THIS_WORKSPACE(d^tblflapply)(getArt,__U2,__newquantvar4,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,34)),fllibexecute_delayed_calls([__newquantvar4,__U2],[]))),[__U2,__newquantvar4],209,'DB1.flr'))),fllibexecute_delayed_calls([__U1,__U2,__newquantvar4],[]))),[__U1,__U2,__U2,__U2],209,'DB1.flr')),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar5,34)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar6,34)),fllibdelayedliteral('!=','DB1.flr',212,[__U1,__U2])))),null,'_$_$_flora''rule_enabled'(34,'DB1.flr',FLORA_THIS_MODULE_NAME),null,true)).
+?-(fllibinsrulesig(36,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,126,FLORA_THIS_WORKSPACE(d^tblflapply)(q4atest,__U1,__Ct1,__U2,__Ct2,'_$ctxt'(_CallerModuleVar,36,__newcontextvar1)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(performedArts,__U1,__Ct1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,36)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(performedArts,__U2,__Ct2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,36)),','(fllibdelayedliteral('!=','DB1.flr',218,[__U1,__U2]),flibnafdelay(flora_naf(FLORA_THIS_WORKSPACE(tabled_unnumber_call)(','(@<(__Ct1,__Ct2),fllibexecute_delayed_calls([__Ct1,__Ct2],[]))),[__Ct1,__Ct2],219,'DB1.flr'))))),null,'_$_$_flora''rule_enabled'(36,'DB1.flr',FLORA_THIS_MODULE_NAME),null,true)).
+?-(fllibinsrulesig(38,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,127,FLORA_THIS_WORKSPACE(d^tblflapply)(qq,__U1,__U2,'_$ctxt'(_CallerModuleVar,38,__newcontextvar1)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,38)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,38)),','(flibnafdelay(flora_naf(FLORA_THIS_WORKSPACE(tabled_unnumber_call)(','(FLORA_THIS_WORKSPACE(d^tblflapply)(getArt,__U1,__P,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar4,38)),fllibexecute_delayed_calls([__P,__U1],[]))),[__U1,__P],225,'DB1.flr')),','(FLORA_THIS_WORKSPACE(d^tblflapply)(getArt,__U2,__P,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar5,38)),fllibdelayedliteral('!=','DB1.flr',226,[__U1,__U2]))))),null,'_$_$_flora''rule_enabled'(38,'DB1.flr',FLORA_THIS_MODULE_NAME),fllibexecute_delayed_calls([__P,__U1,__U2],[__U1,__U2]),true)).
+?-(fllibinsrulesig(40,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,128,FLORA_THIS_WORKSPACE(d^tblflapply)(qq1,__U1,__U2,'_$ctxt'(_CallerModuleVar,40,__newcontextvar1)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,40)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,40)),fllibdelayedliteral('!=','DB1.flr',231,[__U1,__U2]))),null,'_$_$_flora''rule_enabled'(40,'DB1.flr',FLORA_THIS_MODULE_NAME),null,true)).
+?-(fllibinsrulesig(42,'DB1.flr','_$_$_flora''descr_vars',FLORA_THIS_MODULE_NAME,129,FLORA_THIS_WORKSPACE(d^tblflapply)(q4a,__U1,__U2,'_$ctxt'(_CallerModuleVar,42,__newcontextvar1)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(qq1,__U1,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,42)),flibnafdelay(flora_naf(FLORA_THIS_WORKSPACE(tabled_unnumber_call)(','(FLORA_THIS_WORKSPACE(d^tblflapply)(qq,__U1,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,42)),fllibexecute_delayed_calls([__U1,__U2],[]))),[__U1,__U2],233,'DB1.flr'))),null,'_$_$_flora''rule_enabled'(42,'DB1.flr',FLORA_THIS_MODULE_NAME),null,true)).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Rules %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(checkSame,__U1,__U2,'_$ctxt'(_CallerModuleVar,4,__newcontextvar1)),','('_$_$_flora''rule_enabled'(4,'DB1.flr',FLORA_THIS_MODULE_NAME),','(','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__A,__Show,__J,__Score,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,4)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U2,__A,__Show,__J,__Score,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,4)),@<(__U1,__U2))),fllibexecute_delayed_calls([__A,__J,__Score,__Show,__U1,__U2],[__U1,__U2])))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(sameAvg,__U1,__U2,__Avg1,'_$ctxt'(_CallerModuleVar,6,__newcontextvar1)),','('_$_$_flora''rule_enabled'(6,'DB1.flr',FLORA_THIS_MODULE_NAME),','(','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,6)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,6)),','(','(fllibavg(__Score1,[],','(','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__A,__S1,___J,__Score1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar4,6)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U2,__A,__S2,___J,__Score2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar5,6)),fllibdelayedliteral('!=','DB1.flr',125,[__U1,__U2]))),fllibexecute_delayed_calls([__A,__S1,__S2,__Score1,__Score2,__U1,__U2,___J],[])),__newvar6),=(__Avg1,__newvar6)),','(','(fllibavg(__Score2,[],','(','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__A,__S1,___J,__Score1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar7,6)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U2,__A,__S2,___J,__Score2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar8,6)),fllibdelayedliteral('!=','DB1.flr',126,[__U1,__U2]))),fllibexecute_delayed_calls([__A,__S1,__S2,__Score1,__Score2,__U1,__U2,___J],[])),__newvar9),=(__Avg2,__newvar9)),','(=(__Avg1,__Avg2),@<(__U1,__U2)))))),fllibexecute_delayed_calls([__A,__Avg1,__Avg2,__S1,__S2,__Score1,__Score2,__U1,__U2,___J],[__Avg1,__U1,__U2])))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(getAvg,__U1,__Avg1,'_$ctxt'(_CallerModuleVar,8,__newcontextvar1)),','('_$_$_flora''rule_enabled'(8,'DB1.flr',FLORA_THIS_MODULE_NAME),','(','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,8)),','(fllibavg(__Score,[],','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,___A,___S,___J,__Score,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,8)),fllibexecute_delayed_calls([__Score,__U1,___A,___J,___S],[])),__newvar4),=(__Avg1,__newvar4))),fllibexecute_delayed_calls([__Avg1,__Score,__U1,___A,___J,___S],[__Avg1,__U1])))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(samePc,__U1,__U2,__A,__S1,__S2,__L1,__L2,'_$ctxt'(_CallerModuleVar,10,__newcontextvar1)),','('_$_$_flora''rule_enabled'(10,'DB1.flr',FLORA_THIS_MODULE_NAME),','(','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,10)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,10)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(getAvgScore,__U1,__A,__S1,__newdontcarevar4,__L1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar5,10)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(getAvgScore,__U2,__A,__S2,__newdontcarevar6,__L2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar7,10)),','(=(__L1,__L2),@<(__U1,__U2)))))),fllibexecute_delayed_calls([__A,__L1,__L2,__S1,__S2,__U1,__U2,__newdontcarevar8],[__A,__L1,__L2,__S1,__S2,__U1,__U2])))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(getAvgScore,__U1,__A,__S1,__Score1,__L,'_$ctxt'(_CallerModuleVar,12,__newcontextvar1)),','('_$_$_flora''rule_enabled'(12,'DB1.flr',FLORA_THIS_MODULE_NAME),','(','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,12)),','(fllibavg(__Score1,[__U1,__A,__S1],','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__A,__S1,___J,__Score1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,12)),fllibexecute_delayed_calls([__A,__S1,__Score1,__U1,___J],[])),__newvar4),=(__L,__newvar4))),fllibexecute_delayed_calls([__A,__L,__S1,__Score1,__U1,___J],[__A,__L,__S1,__Score1,__U1])))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(getHighestScore,__U1,__A,__S1,__Score1,__L,__C,'_$ctxt'(_CallerModuleVar,14,__newcontextvar1)),','('_$_$_flora''rule_enabled'(14,'DB1.flr',FLORA_THIS_MODULE_NAME),','(','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,14)),','(','(fllibmax(__Score1,[__U1,__A,__S1],','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__A,__S1,___J,__Score1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,14)),fllibexecute_delayed_calls([__A,__S1,__Score1,__U1,___J],[])),__newvar4),=(__L,__newvar4)),','(fllibcount(__Score1,[__U1,__A,__S1],','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__A,__S1,___J,__Score1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar5,14)),fllibexecute_delayed_calls([__A,__S1,__Score1,__U1,___J],[])),__newvar6),=(__C,__newvar6)))),fllibexecute_delayed_calls([__A,__C,__L,__S1,__Score1,__U1,___J],[__A,__C,__L,__S1,__Score1,__U1])))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(sameHighestScore,__U1,__U2,__A,__S1,__S2,__L1,__L2,'_$ctxt'(_CallerModuleVar,16,__newcontextvar1)),','('_$_$_flora''rule_enabled'(16,'DB1.flr',FLORA_THIS_MODULE_NAME),','(','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,16)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,16)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(getHighestScore,__U1,__A,__S1,__newdontcarevar4,__L1,__C1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar5,16)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(getHighestScore,__U2,__A,__S2,__newdontcarevar6,__L2,__C2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar7,16)),','(=(__L1,__L2),','(fllibdelayedliteral(>,'DB1.flr',167,[__C1,2]),','(fllibdelayedliteral(>,'DB1.flr',168,[__C2,2]),@<(__U1,__U2)))))))),fllibexecute_delayed_calls([__A,__C1,__C2,__L1,__L2,__S1,__S2,__U1,__U2,__newdontcarevar8],[__A,__L1,__L2,__S1,__S2,__U1,__U2])))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(performedArts,__U1,__Ct,'_$ctxt'(_CallerModuleVar,18,__newcontextvar1)),','('_$_$_flora''rule_enabled'(18,'DB1.flr',FLORA_THIS_MODULE_NAME),','(','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,18)),','(fllibsetsortby(__Art,[__U1],','(asc,asc),','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__Art,__newdontcarevar3,__newdontcarevar4,__newdontcarevar5,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar6,18)),fllibexecute_delayed_calls([__Art,__U1,__newdontcarevar7],[])),__newvar8),=(__Ct,__newvar8))),fllibexecute_delayed_calls([__Art,__Ct,__U1,__newdontcarevar9],[__Ct,__U1])))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(sameArt,__U1,__U2,__Ct1,__Ct2,__C1,'_$ctxt'(_CallerModuleVar,20,__newcontextvar1)),','('_$_$_flora''rule_enabled'(20,'DB1.flr',FLORA_THIS_MODULE_NAME),','(','(','(fllibsetof(__Art,[__U1],','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__Art,__newdontcarevar2,__newdontcarevar3,__newdontcarevar4,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar5,20)),fllibexecute_delayed_calls([__Art,__U1,__newdontcarevar6],[])),__newvar7),=(__Ct1,__newvar7)),','(','(fllibsetof(__Art,[__U2],','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U2,__Art,__newdontcarevar8,__newdontcarevar9,__newdontcarevar10,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar11,20)),fllibexecute_delayed_calls([__Art,__U2,__newdontcarevar12],[])),__newvar13),=(__Ct2,__newvar13)),','(fllibdelayedliteral('!=','DB1.flr',185,[__U1,__U2]),','(=(__C1,__Ct1),FLORA_WORKSPACE(\\basetype,d^iboolsig)(__Ct1,flapply(contains,__Ct2),'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar14,20)))))),fllibexecute_delayed_calls([__Art,__C1,__Ct1,__Ct2,__U1,__U2,__newdontcarevar15],[__C1,__Ct1,__Ct2,__U1,__U2])))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(test,__Ct1,'_$ctxt'(_CallerModuleVar,22,__newcontextvar1)),','('_$_$_flora''rule_enabled'(22,'DB1.flr',FLORA_THIS_MODULE_NAME),','(';'(=(__Ct2,[a,b,c,d]),FLORA_WORKSPACE(\\basetype,d^mvd)('\\list',flapply(append,[__Ct2]),__Ct1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,22))),fllibexecute_delayed_calls([__Ct1,__Ct2],[__Ct1])))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(getArt,__N,__C,'_$ctxt'(_CallerModuleVar,24,__newcontextvar1)),','('_$_$_flora''rule_enabled'(24,'DB1.flr',FLORA_THIS_MODULE_NAME),','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__N,__C,__newdontcarevar2,__newdontcarevar3,__newdontcarevar4,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar5,24)),fllibexecute_delayed_calls([__C,__N,__newdontcarevar6],[__C,__N])))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(checkSame2,__U1,__U2,'_$ctxt'(_CallerModuleVar,26,__newcontextvar1)),','('_$_$_flora''rule_enabled'(26,'DB1.flr',FLORA_THIS_MODULE_NAME),','(','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U1,__A,__Show,__J,__Score,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,26)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(scores,__U2,__A,__Show,__J,__Score,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,26)),fllibdelayedliteral('!=','DB1.flr',199,[__U1,__U2]))),fllibexecute_delayed_calls([__A,__J,__Score,__Show,__U1,__U2],[__U1,__U2])))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(chained,__U1,__U2,'_$ctxt'(_CallerModuleVar,28,__newcontextvar1)),','('_$_$_flora''rule_enabled'(28,'DB1.flr',FLORA_THIS_MODULE_NAME),FLORA_THIS_WORKSPACE(d^tblflapply)(checkSame2,__U1,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,28)))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(chained,__U1,__U3,'_$ctxt'(_CallerModuleVar,30,__newcontextvar1)),','('_$_$_flora''rule_enabled'(30,'DB1.flr',FLORA_THIS_MODULE_NAME),','(','(FLORA_THIS_WORKSPACE(d^tblflapply)(chained,__U1,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,30)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(checkSame2,__U2,__U3,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,30)),','(fllibdelayedliteral('!=','DB1.flr',202,[__U2,__U3]),','(fllibdelayedliteral('!=','DB1.flr',202,[__U1,__U2]),fllibdelayedliteral('!=','DB1.flr',202,[__U1,__U3]))))),fllibexecute_delayed_calls([__U1,__U2,__U3],[__U1,__U3])))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(chained2,__U1,__U2,'_$ctxt'(_CallerModuleVar,32,__newcontextvar1)),','('_$_$_flora''rule_enabled'(32,'DB1.flr',FLORA_THIS_MODULE_NAME),','(FLORA_THIS_WORKSPACE(d^tblflapply)(chained,__U1,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,32)),@<(__U1,__U2)))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(q4b,__U1,__U2,'_$ctxt'(_CallerModuleVar,34,__newcontextvar1)),','('_$_$_flora''rule_enabled'(34,'DB1.flr',FLORA_THIS_MODULE_NAME),','(flibnafdelay(flora_naf(FLORA_THIS_WORKSPACE(tabled_unnumber_call)(','(','(FLORA_THIS_WORKSPACE(d^tblflapply)(getArt,__U1,__newquantvar4,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,34)),flibnafdelay(flora_naf(FLORA_THIS_WORKSPACE(tabled_unnumber_call)(','(FLORA_THIS_WORKSPACE(d^tblflapply)(getArt,__U2,__newquantvar4,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,34)),fllibexecute_delayed_calls([__newquantvar4,__U2],[]))),[__U2,__newquantvar4],209,'DB1.flr'))),fllibexecute_delayed_calls([__U1,__U2,__newquantvar4],[]))),[__U1,__U2,__U2,__U2],209,'DB1.flr')),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar5,34)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar6,34)),fllibdelayedliteral('!=','DB1.flr',212,[__U1,__U2])))))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(q4atest,__U1,__Ct1,__U2,__Ct2,'_$ctxt'(_CallerModuleVar,36,__newcontextvar1)),','('_$_$_flora''rule_enabled'(36,'DB1.flr',FLORA_THIS_MODULE_NAME),','(FLORA_THIS_WORKSPACE(d^tblflapply)(performedArts,__U1,__Ct1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,36)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(performedArts,__U2,__Ct2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,36)),','(fllibdelayedliteral('!=','DB1.flr',218,[__U1,__U2]),flibnafdelay(flora_naf(FLORA_THIS_WORKSPACE(tabled_unnumber_call)(','(@<(__Ct1,__Ct2),fllibexecute_delayed_calls([__Ct1,__Ct2],[]))),[__Ct1,__Ct2],219,'DB1.flr'))))))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(qq,__U1,__U2,'_$ctxt'(_CallerModuleVar,38,__newcontextvar1)),','('_$_$_flora''rule_enabled'(38,'DB1.flr',FLORA_THIS_MODULE_NAME),','(','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,38)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,38)),','(flibnafdelay(flora_naf(FLORA_THIS_WORKSPACE(tabled_unnumber_call)(','(FLORA_THIS_WORKSPACE(d^tblflapply)(getArt,__U1,__P,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar4,38)),fllibexecute_delayed_calls([__P,__U1],[]))),[__U1,__P],225,'DB1.flr')),','(FLORA_THIS_WORKSPACE(d^tblflapply)(getArt,__U2,__P,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar5,38)),fllibdelayedliteral('!=','DB1.flr',226,[__U1,__U2]))))),fllibexecute_delayed_calls([__P,__U1,__U2],[__U1,__U2])))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(qq1,__U1,__U2,'_$ctxt'(_CallerModuleVar,40,__newcontextvar1)),','('_$_$_flora''rule_enabled'(40,'DB1.flr',FLORA_THIS_MODULE_NAME),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U1,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,40)),','(FLORA_THIS_WORKSPACE(d^tblflapply)(contestant,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,40)),fllibdelayedliteral('!=','DB1.flr',231,[__U1,__U2]))))).
+:-(FLORA_THIS_WORKSPACE(derived^tblflapply)(q4a,__U1,__U2,'_$ctxt'(_CallerModuleVar,42,__newcontextvar1)),','('_$_$_flora''rule_enabled'(42,'DB1.flr',FLORA_THIS_MODULE_NAME),','(FLORA_THIS_WORKSPACE(d^tblflapply)(qq1,__U1,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar2,42)),flibnafdelay(flora_naf(FLORA_THIS_WORKSPACE(tabled_unnumber_call)(','(FLORA_THIS_WORKSPACE(d^tblflapply)(qq,__U1,__U2,'_$ctxt'(FLORA_THIS_MODULE_NAME,__newcontextvar3,42)),fllibexecute_delayed_calls([__U1,__U2],[]))),[__U1,__U2],233,'DB1.flr'))))).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Signatures for latent queries %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%% Queries found in the source file %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+ 
+#if !defined(FLORA_FLS2_FILENAME)
+#if !defined(FLORA_LOADDYN_DATA)
+#define FLORA_LOADDYN_DATA
+#endif
+#define FLORA_FLS2_FILENAME  'DB1.fls2'
+?-(:(flrutils,flora_loaddyn_data(FLORA_FLS2_FILENAME,FLORA_THIS_MODULE_NAME,'fls2'))).
+#else
+#if !defined(FLORA_READ_CANONICAL_AND_INSERT)
+#define FLORA_READ_CANONICAL_AND_INSERT
+#endif
+?-(:(flrutils,flora_read_symbols_canonical_and_insert(FLORA_FLS2_FILENAME,FLORA_THIS_FLS_STORAGE,_SymbolErrNum))).
+#endif
+
+/************************************************************************
+  file: headerinc/flrtrailer_inc.flh
+
+  Author(s): Michael Kifer
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+#include "flrtrailer.flh"
+
+/***********************************************************************/
+
+/************************************************************************
+  file: headerinc/flrdynz_inc.flh
+
+  Author(s): Chang Zhao
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+:-(compiler_options([xpp_on])).
+
+#include "flrdynz.flh"
+
+/***********************************************************************/
+
+/************************************************************************
+  file: headerinc/flrpreddef_inc.flh
+
+  Author(s): Chang Zhao
+
+  This file is automatically included by the FLORA-2 compiler.
+************************************************************************/
+
+:-(compiler_options([xpp_on])).
+
+#include "flrpreddef.flh"
+
+/***********************************************************************/
+

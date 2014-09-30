@@ -1,0 +1,109 @@
+#include "flrheader.flh"
+
+FLORA_THIS_WORKSPACE(tblflapply)(show,'Show1',20140202,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(show,'Show1',20140202,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(show,'Show2',20140402,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(show,'Show3',20140602,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(show,'Show4',20140802,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(show,'Show5',20141005,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(judge,'Show1','Judy',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(judge,'Show1','Lucy',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(judge,'Show1','Irving',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(judge,'Show2','Judy',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(judge,'Show2','Phil',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(judge,'Show3','Irving',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(judge,'Show3','Phil',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(judge,'Show3','Oscar',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(judge,'Show4','Lucy',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(judge,'Show4','Oscar',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(judge,'Show5','Lucy',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(judge,'Show5','Irving',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(judge,'Show5','Phil',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(contestant,'Joe',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(contestant,'Mary',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(contestant,'Bess',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(contestant,'Don',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(contestant,'Bob',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(contestant,'Tom',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(contestant,'Ann',__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Joe','Barcarolle','Show1','Judy',7,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Joe','Barcarolle','Show1','Lucy',8,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Joe','Barcarolle','Show1','Irving',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Mary','Barcarolle','Show1','Judy',5,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Mary','Barcarolle','Show1','Lucy',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Mary','Barcarolle','Show1','Irving',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Mary','Giselle','Show1','Judy',9,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Mary','Giselle','Show1','Lucy',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Mary','Giselle','Show1','Irving',8,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bess','Besame Mucho','Show1','Judy',4,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bess','Besame Mucho','Show1','Lucy',5,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bess','Besame Mucho','Show1','Irving',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Don','Besame Mucho','Show1','Judy',9,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Don','Besame Mucho','Show1','Lucy',9,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Don','Besame Mucho','Show1','Irving',7,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bob','Swan Lake','Show2','Judy',8,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bob','Swan Lake','Show2','Phil',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Mary','Habanera','Show2','Judy',3,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Mary','Habanera','Show2','Phil',5,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Mary','Besame Mucho','Show2','Judy',9,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Mary','Besame Mucho','Show2','Phil',10,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Ann','Habanera','Show2','Judy',7,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Ann','Habanera','Show2','Phil',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bess','Giselle','Show2','Judy',8,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bess','Giselle','Show2','Phil',7,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Tom','Besame Mucho','Show2','Judy',5,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Tom','Besame Mucho','Show2','Phil',5,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Tom','The Tramp','Show2','Judy',7,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Tom','The Tramp','Show2','Phil',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bob','The Tramp','Show3','Irving',8,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bob','The Tramp','Show3','Phil',7,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bob','The Tramp','Show3','Oscar',9,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Ann','Besame Mucho','Show3','Irving',7,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Ann','Besame Mucho','Show3','Phil',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Ann','Besame Mucho','Show3','Oscar',4,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bess','Swan Lake','Show3','Irving',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bess','Swan Lake','Show3','Phil',8,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bess','Swan Lake','Show3','Oscar',7,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Tom','Barcarolle','Show3','Irving',9,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Tom','Barcarolle','Show3','Phil',7,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Tom','Barcarolle','Show3','Oscar',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Don','Giselle','Show3','Irving',8,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Don','Giselle','Show3','Phil',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Don','Giselle','Show3','Oscar',9,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Joe','The Tramp','Show4','Lucy',7,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Joe','The Tramp','Show4','Oscar',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bob','Barcarolle','Show4','Lucy',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bob','Barcarolle','Show4','Oscar',8,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Ann','Besame Mucho','Show4','Oscar',9,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Ann','Besame Mucho','Show4','Oscar',8,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Tom','The Tramp','Show4','Lucy',8,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Tom','The Tramp','Show4','Oscar',10,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Tom','Barcarolle','Show4','Lucy',5,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Tom','Barcarolle','Show4','Oscar',5,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bob','Swan Lake','Show5','Lucy',3,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bob','Swan Lake','Show5','Irving',5,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bob','Swan Lake','Show5','Phil',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bob','Giselle','Show5','Lucy',4,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bob','Giselle','Show5','Irving',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bob','Giselle','Show5','Phil',8,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Mary','Barcarolle','Show5','Lucy',5,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Mary','Barcarolle','Show5','Irving',7,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Mary','Barcarolle','Show5','Phil',10,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Mary','Besame Mucho','Show5','Lucy',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Mary','Besame Mucho','Show5','Irving',8,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Mary','Besame Mucho','Show5','Phil',7,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Ann','Besame Mucho','Show5','Lucy',7,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Ann','Besame Mucho','Show5','Irving',9,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Ann','Besame Mucho','Show5','Phil',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bess','Besame Mucho','Show5','Lucy',9,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bess','Besame Mucho','Show5','Irving',8,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bess','Besame Mucho','Show5','Phil',8,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bess','Habanera','Show5','Lucy',8,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bess','Habanera','Show5','Irving',7,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Bess','Habanera','Show5','Phil',10,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Tom','The Tramp','Show5','Lucy',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Tom','The Tramp','Show5','Irving',6,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Tom','The Tramp','Show5','Phil',8,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Don','The Tramp','Show5','Lucy',5,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Don','The Tramp','Show5','Irving',8,__newcontextvar3).
+FLORA_THIS_WORKSPACE(tblflapply)(scores,'Don','The Tramp','Show5','Phil',7,__newcontextvar3).
